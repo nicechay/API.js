@@ -1,2 +1,2 @@
 # API.js
-A Javascript library which the usage of APIs of popular websites easier
+API.js is a JavaScript library which makes it is easier to use APIs of popular websites
