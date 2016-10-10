@@ -36,7 +36,7 @@ $("#link").html('<a href="'+WIKIAC(data,"url")+'" >'+WIKIAC(data,"title")+'</a>'
 
 The id arguement in following functions should be the output of function WIKIID()
 
-*__WIKITHUMB(id) : Sends AJAX request to get suitable image for given page.
+*__WIKITHUMB(id)__ : Sends AJAX request to get suitable image for given page.
 
 data arguement in following function is response of WIKITHUMB() function.
 
