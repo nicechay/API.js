@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Api.js by nicechay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Api.js</h1>
+      <h2 class="project-tagline">API.js is a JavaScript library which makes it is easier to use APIs of popular websites </h2>
+      <a href="https://github.com/nicechay/API.js" class="btn">View on GitHub</a>
+      <a href="https://github.com/nicechay/API.js/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/nicechay/API.js/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="apijs" class="anchor" href="#apijs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API.js</h1>
+
+<p>API.js is a JavaScript library that makes it is easy to use popular APIs.
+(even javaScript beginners can use this. No knowledge of JSON or APIs is required)</p>
+
+<h2>
+<a id="dependencies--jquery" class="anchor" href="#dependencies--jquery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies : Jquery</h2>
+
+<h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Usage</h2>
+
+<p>Each JavaScript file contains a set of functions that can be directly used anywhere in your project.</p>
+
+<h2>
+<a id="wikipediajs" class="anchor" href="#wikipediajs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wikipedia.js</h2>
+
+<p>This JavaScript contains functions related to Wikipedia API .</p>
+
+<h3>
+<a id="list-of-functions" class="anchor" href="#list-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of functions</h3>
+
+<p>The query arguement in following function should be a string. For example : query = "Steve Jobs" .</p>
+
+<p>*<strong>WIKI(query)</strong> : This functions sends an request to search wikipedia for entered query for best result.</p>
+
+<p>The data arguement in following functions should be the response of function WIKI() . For Example: data = WIKI("Steve Jobs").</p>
+
+<p>The prop arguement can be "title" :Gets title of Title page , "desc" : Description of page , "url" : The url of page. </p>
+
+<p>*<strong>WIKIID(data)</strong>: Gets page ID from given search data.</p>
+
+<p>*<strong>WIKIAC(data,prop)</strong>: Gets props of given search data.</p>
+
+<p>Sample Usage</p>
+
+<div class="highlight highlight-source-js"><pre>query <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>any string<span class="pl-pds">"</span></span> ;
+<span class="pl-en">WIKI</span>(query).<span class="pl-en">done</span>(<span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>#link<span class="pl-pds">"</span></span>).<span class="pl-en">html</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;a href="<span class="pl-pds">'</span></span><span class="pl-k">+</span><span class="pl-en">WIKIAC</span>(data,<span class="pl-s"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span>)<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>" &gt;<span class="pl-pds">'</span></span><span class="pl-k">+</span><span class="pl-en">WIKIAC</span>(data,<span class="pl-s"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span>)<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>&lt;/a&gt;<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<p>The id arguement in following functions should be the output of function WIKIID()</p>
+
+<p>*<strong>WIKITHUMB(id)</strong> : Sends AJAX request to get suitable image for given page.</p>
+
+<p>data arguement in following function is response of WIKITHUMB() function.</p>
+
+<p>*<strong>WIKIIMG(data,type)</strong> : To get properties of image.</p>
+
+<p>Sample usage</p>
+
+<div class="highlight highlight-source-js"><pre>query <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>sample string<span class="pl-pds">"</span></span>;
+<span class="pl-en">WIKI</span>(query).<span class="pl-en">done</span>(<span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
+<span class="pl-en">WIKITHUMB</span>(<span class="pl-en">WIKIID</span>(data)).<span class="pl-en">done</span>(<span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#div<span class="pl-pds">'</span></span>).<span class="pl-c1">append</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;img src="<span class="pl-pds">'</span></span><span class="pl-k">+</span><span class="pl-en">WIKIIMG</span>(data,<span class="pl-s"><span class="pl-pds">"</span>src<span class="pl-pds">"</span></span>)<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>" title="<span class="pl-pds">'</span></span><span class="pl-k">+</span><span class="pl-en">WIKIIMG</span>(data,<span class="pl-s"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span>)<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>" /&gt;<span class="pl-pds">'</span></span>);
+});
+});</pre></div>
+
+<p>*<strong>WIKIHTML(id)</strong>:sends request to get information of any page in HTML format.</p>
+
+<p>Sample Usage</p>
+
+<div class="highlight highlight-source-js"><pre>query <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>any string<span class="pl-pds">"</span></span>;
+<span class="pl-en">WIKI</span>(query).<span class="pl-en">done</span>(<span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
+<span class="pl-en">WIKIHTML</span>(<span class="pl-en">WIKIID</span>(data)).<span class="pl-en">done</span>(<span class="pl-k">function</span>(<span class="pl-smi">data</span>) {
+<span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>.mob<span class="pl-pds">"</span></span>).<span class="pl-en">html</span>(<span class="pl-smi">data</span>.<span class="pl-smi">mobileview</span>.<span class="pl-smi">sections</span>[<span class="pl-c1">0</span>].<span class="pl-c1">text</span>);
+});
+});</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/nicechay/API.js">Api.js</a> is maintained by <a href="https://github.com/nicechay">nicechay</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
