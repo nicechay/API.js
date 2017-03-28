@@ -1,6 +1,5 @@
 # API.js
-API.js is a JavaScript library that makes it is easy to use popular APIs.
-(even javaScript beginners can use this. No knowledge of JSON or APIs is required)
+API.js demonstrates the usage of wikipedia api
 
 ##Dependencies : Jquery
 
