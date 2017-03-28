@@ -1,10 +1,7 @@
-# API.js
+# Wikipedia.js
 API.js demonstrates the usage of wikipedia api
 
 ##Dependencies : Jquery
-
-##Basic Usage
-Each JavaScript file contains a set of functions that can be directly used anywhere in your project.
 
 ##Wikipedia.js
 This JavaScript contains functions related to Wikipedia API .
